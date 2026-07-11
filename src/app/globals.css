@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #F6F3EA;
+  --color-lemon: #D6F23D;
+  --color-ink: #111110;
+  --color-ink-light: #3A3A38;
+  --color-ink-muted: #6B6B68;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  ::selection {
+    background-color: #D6F23D;
+    color: #111110;
+  }
+
+  :focus-visible {
+    outline: 2px solid #D6F23D;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@utility scroll-indicator {
+  @apply w-6 h-10 border-2 border-ink/20 rounded-full flex justify-center pt-2;
+}
+
+@utility scroll-dot {
+  @apply w-1.5 h-1.5 bg-ink/40 rounded-full;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
